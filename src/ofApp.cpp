@@ -19,6 +19,12 @@ with the Augmented Reality Sandbox; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 ***********************************************************************/
 
+/*
+    This Version of Thom Wolf's Magic Sand will be modified for use at the Children's Creativity Museum
+*/
+
+
+
 #include "ofApp.h"
 
 void ofApp::setup() {
