@@ -314,8 +314,27 @@ void ofApp::keyPressed(int key) {
         case OF_KEY_DOWN:
             rabbits.pop_back();
             break;
+        case '1':
+            sandSurfaceRenderer->gui2->getToggle("Contour lines")->setChecked(false);
+            break;
+        case '2':
+            sandSurfaceRenderer->gui2->getToggle("Contour lines")->setChecked(true);
+            break;
+        case 'l':
+            
+            break;
+        case 'c':
+            
+            break;
+        case 'j':
+            
+        case 'f':
+            ofToggleFullscreen();
+            
+            break;
 
     }
+
 }
 
 void ofApp::keyReleased(int key) {
