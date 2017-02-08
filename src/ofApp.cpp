@@ -20,7 +20,8 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 ***********************************************************************/
 
 /*
-    This Version of Thom Wolf's Magic Sand will be modified for use at the Children's Creativity Museum
+    This Version of Thom Wolf's Magic Sand will be modified for use in an exhibition at the 
+    Children's Creativity Museum in San Francisco, CA.
 */
 
 
@@ -281,8 +282,40 @@ void ofApp::drawMotherRabbit()
     ofSetColor(255);
 }
 
-void ofApp::keyPressed(int key) {
 
+//  ADDING KEY COMMANDS FOR EASY SETUP, LEFT/RIGHT TO ADD/SUBTRACT RABBITS, UP/DOWN TO ADD/SUBTRACT FISH
+
+void ofApp::keyPressed(int key) {
+    switch(key){
+        // REMOVE ALL ANIMALS; Copied code from DatGui button
+        case 'r':
+            fish.clear();
+            rabbits.clear();
+            showMotherFish = false;
+            showMotherRabbit = false;
+            gui->getSlider("# of fish")->setValue(0);
+            gui->getSlider("# of rabbits")->setValue(0);
+            gui->getToggle("Mother fish")->setChecked(false);
+            gui->getToggle("Mother rabbit")->setChecked(false);
+            break;
+        // ADD FISH; Copied code from DatGui button
+        case OF_KEY_RIGHT:
+            addNewFish();
+            break;
+        // REMOVE FISH; Copied code from DatGui button
+        case OF_KEY_LEFT:
+            fish.pop_back();
+            break;
+        // ADD RABBITS; Copied code from DatGui button
+        case OF_KEY_UP:
+            addNewRabbit();
+            break;
+        // REMOVE RABBITS; Copied code from DatGui button
+        case OF_KEY_DOWN:
+            rabbits.pop_back();
+            break;
+
+    }
 }
 
 void ofApp::keyReleased(int key) {
