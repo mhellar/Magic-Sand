@@ -238,6 +238,8 @@ void Fish::setup(){
     maxVelocityChange = 1;
     maxRotation = 30;
     topSpeed =2;
+    
+    aha.load("aha.png");
 }
 
 ofPoint Fish::wanderEffect(){
@@ -300,56 +302,68 @@ void Fish::applyBehaviours(bool seekMother){
 
 void Fish::draw()
 {
+//    ofPushMatrix();
+//    ofTranslate(projectorCoord);
+//    ofRotate(angle);
+//    
+//    // Compute tail angle
+//    float nv = 0.5;//velocity.lengthSquared()/10; // Tail movement amplitude
+//    float fact = 50+250*velocity.length()/topSpeed;
+//    float tailangle = nv/25 * (abs(((int)(ofGetElapsedTimef()*fact) % 100) - 50)-25);
+//    
+//    // Color of the fish
+//    nv = 255;
+//    fact = 50;
+//    float hsb = nv/50 * (abs(((int)(ofGetElapsedTimef()*fact) % 100) - 50));
+//    
+//    // Fish scale
+//    float sc = 7;
+//    float tailSize = 1*sc;
+//    float fishLength = 2*sc;
+//    float fishHead = tailSize;
+//    
+//    ofPolyline fish;
+//    fish.curveTo( ofPoint(-fishLength-tailSize*cos(tailangle+0.8), tailSize*sin(tailangle+0.8)));
+//    fish.curveTo( ofPoint(-fishLength-tailSize*cos(tailangle+0.8), tailSize*sin(tailangle+0.8)));
+//    fish.curveTo( ofPoint(-fishLength, 0));
+//    fish.curveTo( ofPoint(0, -fishHead));
+//    fish.curveTo( ofPoint(fishHead, 0));
+//    fish.curveTo( ofPoint(0, fishHead));
+//    fish.curveTo( ofPoint(-fishLength, 0));
+//    fish.curveTo( ofPoint(-fishLength-tailSize*cos(tailangle-0.8), tailSize*sin(tailangle-0.8)));
+//    fish.curveTo( ofPoint(-fishLength-tailSize*cos(tailangle-0.8), tailSize*sin(tailangle-0.8)));
+//    fish.close();
+//    ofSetLineWidth(2.0);
+//    ofColor c = ofColor(255);
+//    ofSetColor(c);
+//    if (mother)
+//    {
+//        c.setHsb((int)hsb, 255, 255); // rainbow
+//        ofFill();
+//    } else {
+//        ofNoFill();
+//    }
+//    fish.draw();
+//    if (mother)
+//    {
+//        c.setHsb(255-(int)hsb, 255, 255); // rainbow
+//        ofSetColor(c);
+//    }
+//    ofDrawCircle(0, 0, sc*0.5);
+//    ofNoFill();
+//    
+//    
+//    ofPopMatrix();
+    
+    
     ofPushMatrix();
     ofTranslate(projectorCoord);
     ofRotate(angle);
-    
-    // Compute tail angle
-    float nv = 0.5;//velocity.lengthSquared()/10; // Tail movement amplitude
-    float fact = 50+250*velocity.length()/topSpeed;
-    float tailangle = nv/25 * (abs(((int)(ofGetElapsedTimef()*fact) % 100) - 50)-25);
-    
-    // Color of the fish
-    nv = 255;
-    fact = 50;
-    float hsb = nv/50 * (abs(((int)(ofGetElapsedTimef()*fact) % 100) - 50));
-    
-    // Fish scale
-    float sc = 7;
-    float tailSize = 1*sc;
-    float fishLength = 2*sc;
-    float fishHead = tailSize;
-    
-    ofPolyline fish;
-    fish.curveTo( ofPoint(-fishLength-tailSize*cos(tailangle+0.8), tailSize*sin(tailangle+0.8)));
-    fish.curveTo( ofPoint(-fishLength-tailSize*cos(tailangle+0.8), tailSize*sin(tailangle+0.8)));
-    fish.curveTo( ofPoint(-fishLength, 0));
-    fish.curveTo( ofPoint(0, -fishHead));
-    fish.curveTo( ofPoint(fishHead, 0));
-    fish.curveTo( ofPoint(0, fishHead));
-    fish.curveTo( ofPoint(-fishLength, 0));
-    fish.curveTo( ofPoint(-fishLength-tailSize*cos(tailangle-0.8), tailSize*sin(tailangle-0.8)));
-    fish.curveTo( ofPoint(-fishLength-tailSize*cos(tailangle-0.8), tailSize*sin(tailangle-0.8)));
-    fish.close();
-    ofSetLineWidth(2.0);
-    ofColor c = ofColor(255);
-    ofSetColor(c);
-    if (mother)
-    {
-        c.setHsb((int)hsb, 255, 255); // rainbow
-        ofFill();
-    } else {
-        ofNoFill();
-    }
-    fish.draw();
-    if (mother)
-    {
-        c.setHsb(255-(int)hsb, 255, 255); // rainbow
-        ofSetColor(c);
-    }
-    ofDrawCircle(0, 0, sc*0.5);
-    ofNoFill();
+    ofPushMatrix();
+    ofTranslate(0-aha.getWidth(), 0-aha.getHeight());
+    aha.draw(0,0, aha.getWidth()*.3,aha.getHeight()*.3);
     ofPopMatrix();
+
 }
 
 //==============================================================

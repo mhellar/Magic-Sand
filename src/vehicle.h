@@ -114,6 +114,8 @@ public:
     void applyBehaviours(bool seekMother);
     void draw();
     
+    ofImage aha;
+    
 private:
     ofPoint wanderEffect();
 };
